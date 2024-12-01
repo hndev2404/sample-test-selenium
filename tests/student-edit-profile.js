@@ -128,7 +128,7 @@ test.describe(TEST_CASE, async function () {
             console.log(err);
             throw err
         }
-        common.sleep(5)
+        await common.sleep(5)
         await driver.quit();
     });
 
@@ -183,7 +183,7 @@ test.describe(TEST_CASE, async function () {
             console.log(err);
             throw err
         }
-        common.sleep(5)
+        await common.sleep(5)
         await driver.quit();
     });
 
@@ -220,7 +220,7 @@ test.describe(TEST_CASE, async function () {
             console.log(err);
             throw err
         }
-        common.sleep(5)
+        await common.sleep(5)
         await driver.quit();
     });
 
@@ -255,7 +255,7 @@ test.describe(TEST_CASE, async function () {
             console.log(err);
             throw err
         }
-        common.sleep(5)
+        await common.sleep(5)
         await driver.quit();
     });
 

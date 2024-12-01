@@ -51,7 +51,7 @@ test.describe(common.getTestCaseName(data['user_type'], data['action']), async f
             console.log(err);
             throw err
         }
-        common.sleep(5)
+        await common.sleep(5)
         await driver.quit();
     });
 
@@ -82,7 +82,7 @@ test.describe(common.getTestCaseName(data['user_type'], data['action']), async f
             console.log(err);
             throw err
         }
-        common.sleep(5)
+        await common.sleep(5)
         await driver.quit();
     });
 
@@ -134,7 +134,7 @@ test.describe(common.getTestCaseName(data['user_type'], data['action']), async f
             console.log(err);
             throw err
         }
-        common.sleep(5)
+        await common.sleep(5)
         await driver.quit();
     });
 
@@ -189,7 +189,7 @@ test.describe(common.getTestCaseName(data['user_type'], data['action']), async f
             console.log(err);
             throw err
         }
-        common.sleep(5)
+        await common.sleep(5)
         await driver.quit();
     });
 });

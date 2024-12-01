@@ -1,0 +1,28 @@
+{
+    "user_type": "User",
+    "action": "Login",
+    "case_1": {
+        "name": "Login with admin",
+        "username": "admin",
+        "password": "sandbox24",
+        "expected_name": "Admin"
+    },
+    "case_2": {
+        "name": "Login with manager",
+        "username": "manager",
+        "password": "sandbox24",
+        "expected_name": "Max"
+    },
+    "case_3": {
+        "name": "Login with teacher",
+        "username": "teacher",
+        "password": "sandbox24",
+        "expected_name": "Julikha Arina"
+    },
+    "case_4": {
+        "name": "Login with student",
+        "username": "student",
+        "password": "sandbox24",
+        "expected_name": "Sam"
+    }
+}
