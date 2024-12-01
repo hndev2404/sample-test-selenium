@@ -146,6 +146,6 @@ test.describe(common.getTestCaseName(data['user_type'], data['action']), async f
             throw err
         }
         await common.sleep(5)
-        // await driver.quit();
+        await driver.quit();
     });
 })

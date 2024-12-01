@@ -1,7 +1,6 @@
-# Selenium JS Example Project
+# Software Testing Project #3
 
-
-```
+## Requirements
 Learn the Selenium tool (https://www.selenium.dev) and apply it to project #2.
 
 Three level of automation:
@@ -10,57 +9,94 @@ Three level of automation:
 URLs and elements like text fields and buttons are provided to the script.
 
 Each student work individually for his/her works of project #2
-```
 
-This is a base project using the [`selenium-webdriver`](http://seleniumhq.github.io/selenium/docs/api/javascript/index.html) for JavaScript and Mocha to handle the tests and reporting.
+## Library
+- [`nodejs`](https://nodejs.org/en) Stable version
+- [`selenium-webdriver`](http://seleniumhq.github.io/selenium/docs/api/javascript/index.html) for JavaScript and Mocha to handle the tests and reporting.
+- [`mocha`](https://www.npmjs.com/package/mocha) for run unit testing by JS
 
 ## Run Locally
+> Notes: Followed steps-by-step
 
 0. [IMPORTANT]() DOWNLOAD CHROME WEB BROWSER
   ```
   => https://googlechromelabs.github.io/chrome-for-testing/#stable
+  Make sure with current OS
   ```
 1. Install [Mocha](http://mochajs.org) globally
 
   ```
-  $ npm install -g mocha
+  npm install -g mocha
   ```
 
 4. Install [cross-env](https://www.npmjs.com/package/cross-env) to make sure Environment Variables are set correctly in each OS:
 
   ```
-  $ npm install -g cross-env
+  npm install -g cross-env
   ```
 
 3. Run all project dependencies:
 
   ```
-  $ npm install
+  npm install
   ```
 
 4. Run the following command to run the test:
 
   ```
-  $ npm run test
+  # for all test case
+  npm run test
+
+  # for specific file
+      > mocha test "filename"
+  sample: 
+      > mocha test tests/user-login.js
   ```
 
-5. Download Selenium we
+
 ## Configuration Overrides
 
 All variables can be modified by changing the `.env` file with the appropiate files. The available environment variables to override are:
 
 - MOCHA_BROWSER: specifies the webdriver to use. Options are:
-    - phantomjs
     - chrome
-    - headlessChrome
     - firefox
-    - opera
-    - safari
-    - ie
-    - edge
+
+  Default: chrome
+
 
 - TEST_BASE_URL: specifies which url the tests should run on. 
 
-### CI Override
+  Default: `https://sandbox.moodledemo.net/`
 
-To change the variable during the CI process a special `.env` file can be found on the `helpers` folder, this has the same variables but the values are changed to keys so it can easily be replaced by any value.
+## Source code structure
+```
+├── action                                      # Wrap-up common function for web driver
+│   └── index.js
+├── config.json
+├── data                                        # Input data (for level 2 of requirements)
+│   ├── manager-add-permission.json
+│   ├── manager-create-course-category.json
+│   ├── manager-create-course.json
+│   ├── manager-edit-permission.json
+│   ├── student-edit-profile.json
+│   ├── teacher-edit-course.json
+│   └── user-login.json
+├── drivers                                     # Web driver download from "https://googlechromelabs.github.io/chrome-for-testing/#stable"
+├── helpers:                                    # Define common function
+├── imgs: Result images
+├── index.js
+├── Makefile
+├── package.json
+├── package-lock.json
+├── README.md
+├── tests                                       # Define automated testing
+│   ├── manager_add_permission.js
+│   ├── manager_create_course_category.js
+│   ├── manager_create_course.js
+│   ├── manager_edit_permission.js
+│   ├── student-edit-profile.js
+│   ├── teacher_edit_course.js
+│   └── user-login.js
+└── xunit.xml                                   # Output of results
+```

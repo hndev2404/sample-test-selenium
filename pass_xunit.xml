@@ -1,6 +1,0 @@
-<testsuite name="Mocha Tests" tests="4" failures="0" errors="0" skipped="0" timestamp="Sun, 01 Dec 2024 12:24:17 GMT" time="89.037">
-<testcase classname="Testcase: User-Login" name="Admin" time="22.238"/>
-<testcase classname="Testcase: User-Login" name="Manager" time="21.34"/>
-<testcase classname="Testcase: User-Login" name="Teacher" time="23.022"/>
-<testcase classname="Testcase: User-Login" name="Student" time="22.422"/>
-</testsuite>

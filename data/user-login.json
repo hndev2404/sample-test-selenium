@@ -17,7 +17,7 @@
         "name": "Login with teacher",
         "username": "teacher",
         "password": "sandbox24",
-        "expected_name": "Julikha Arina"
+        "expected_name": "Terri"
     },
     "case_4": {
         "name": "Login with student",
