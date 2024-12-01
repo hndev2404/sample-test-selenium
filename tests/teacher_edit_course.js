@@ -6,7 +6,7 @@ var common = require("../helpers/common.js");
 var { getDriverConfig } = require("../helpers/drivers.js");
 const action = require("../action/index.js");
 
-data = common.loadJson('data/teacher-edit-course.json')
+dataTeacherEditCourse = common.loadJson('data/teacher-edit-course.json')
 
 const goToEditCourse = (url, driver) => {
     common.logAction("goToEditCourse " + url)
@@ -26,108 +26,108 @@ const verifyErr = async (action, expectedErr, actualErr, driver) => {
 };
 
 
-test.describe(common.getTestCaseName(data['user_type'], data['action']), async function () {
+test.describe(common.getTestCaseName(dataTeacherEditCourse['user_type'], dataTeacherEditCourse['action']), async function () {
     this.timeout("60000");
     test.before(async function () {
     });
 
-    test.it(data['case_1']['name'], async function () {
+    test.it(dataTeacherEditCourse['case_1']['name'], async function () {
         const driver = getDriverConfig(BROWSER);
         await driver.get(BASE_URL);
-        await common.writeScreenshot(common.getImgs(data, 'case_1', 1), driver)
+        await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_1', 1), driver)
 
         try {
-            await action.doLogin(data.account.username, data.account.password, driver);
-            await common.writeScreenshot(common.getImgs(data, 'case_1', 2), driver)
+            await action.doLogin(dataTeacherEditCourse.account.username, dataTeacherEditCourse.account.password, driver);
+            await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_1', 2), driver)
 
-            await goToEditCourse(data['edit_course_url'], driver)
-            await common.writeScreenshot(common.getImgs(data, 'case_1', 3), driver)
-            await goToEditCourseSetting(data['edit_course_setting_url'], driver)
-            await common.writeScreenshot(common.getImgs(data, 'case_1', 4), driver)
+            await goToEditCourse(dataTeacherEditCourse['edit_course_url'], driver)
+            await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_1', 3), driver)
+            await goToEditCourseSetting(dataTeacherEditCourse['edit_course_setting_url'], driver)
+            await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_1', 4), driver)
 
-            await action.findAndSendKeysById('id_fullname', data['case_1']['fullname'], driver)
-            await action.findAndSendKeysById('id_shortname', data['case_1']['shortname'], driver)
-            await action.findAndSendKeysById('id_idnumber', data['case_1']['id_idnumber'], driver)
-            await common.writeScreenshot(common.getImgs(data, 'case_1', 5), driver)
+            await action.findAndSendKeysById('id_fullname', dataTeacherEditCourse['case_1']['fullname'], driver)
+            await action.findAndSendKeysById('id_shortname', dataTeacherEditCourse['case_1']['shortname'], driver)
+            await action.findAndSendKeysById('id_idnumber', dataTeacherEditCourse['case_1']['id_idnumber'], driver)
+            await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_1', 5), driver)
 
             await action.findAndClickById('id_saveanddisplay', driver);
-            await common.writeScreenshot(common.getImgs(data, 'case_1', 6), driver)
+            await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_1', 6), driver)
 
             let errFullname = await driver.findElement(By.id('id_error_fullname'));
             let errFullnameText = await errFullname.getText();
-            verifyErr("verifyFullnameError", data['case_1']['expected_err'], errFullnameText, driver)
-            await common.writeScreenshot(common.getImgs(data, 'case_1', 7), driver)
+            verifyErr("verifyFullnameError", dataTeacherEditCourse['case_1']['expected_err'], errFullnameText, driver)
+            await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_1', 7), driver)
 
         } catch (err) {
-            console.log(err);
+            
             throw err
         }
         await common.sleep(5)
         await driver.quit();
     });
 
-    test.it(data['case_2']['name'], async function () {
+    test.it(dataTeacherEditCourse['case_2']['name'], async function () {
         const driver = getDriverConfig(BROWSER);
         await driver.get(BASE_URL);
-        await common.writeScreenshot(common.getImgs(data, 'case_2', 1), driver)
+        await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_2', 1), driver)
 
         try {
-            await action.doLogin(data.account.username, data.account.password, driver);
-            await common.writeScreenshot(common.getImgs(data, 'case_2', 2), driver)
+            await action.doLogin(dataTeacherEditCourse.account.username, dataTeacherEditCourse.account.password, driver);
+            await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_2', 2), driver)
 
-            await goToEditCourse(data['edit_course_url'], driver)
-            await common.writeScreenshot(common.getImgs(data, 'case_2', 3), driver)
+            await goToEditCourse(dataTeacherEditCourse['edit_course_url'], driver)
+            await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_2', 3), driver)
 
-            await goToEditCourseSetting(data['edit_course_setting_url'], driver)
-            await common.writeScreenshot(common.getImgs(data, 'case_2', 4), driver)
+            await goToEditCourseSetting(dataTeacherEditCourse['edit_course_setting_url'], driver)
+            await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_2', 4), driver)
 
-            await action.findAndSendKeysById('id_fullname', data['case_2']['fullname'], driver)
-            await action.findAndSendKeysById('id_shortname', data['case_2']['shortname'], driver)
-            await action.findAndSendKeysById('id_idnumber', data['case_2']['id_idnumber'], driver)
+            await action.findAndSendKeysById('id_fullname', dataTeacherEditCourse['case_2']['fullname'], driver)
+            await action.findAndSendKeysById('id_shortname', dataTeacherEditCourse['case_2']['shortname'], driver)
+            await action.findAndSendKeysById('id_idnumber', dataTeacherEditCourse['case_2']['id_idnumber'], driver)
 
-            await common.writeScreenshot(common.getImgs(data, 'case_2', 5), driver)
+            await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_2', 5), driver)
 
             await action.findAndClickById('id_saveanddisplay', driver);
 
             let errFullname = await driver.findElement(By.id('id_error_shortname'));
             let errFullnameText = await errFullname.getText();
-            verifyErr("verifyFullnameError", data['case_1']['expected_err'], errFullnameText, driver)
-            await common.writeScreenshot(common.getImgs(data, 'case_2', 6), driver)
+            verifyErr("verifyFullnameError", dataTeacherEditCourse['case_1']['expected_err'], errFullnameText, driver)
+            await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_2', 6), driver)
 
         } catch (err) {
-            console.log(err);
+            
             throw err
         }
         await common.sleep(5)
         await driver.quit();
     });
 
-    test.it(data['case_3']['name'], async function () {
+    test.it(dataTeacherEditCourse['case_3']['name'], async function () {
         const driver = getDriverConfig(BROWSER);
         await driver.get(BASE_URL);
-        await common.writeScreenshot(common.getImgs(data, 'case_3', 1), driver)
+        await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_3', 1), driver)
 
         try {
-            await action.doLogin(data.account.username, data.account.password, driver);
-            await common.writeScreenshot(common.getImgs(data, 'case_3', 2), driver)
+            await action.doLogin(dataTeacherEditCourse.account.username, dataTeacherEditCourse.account.password, driver);
+            await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_3', 2), driver)
 
-            await goToEditCourse(data['edit_course_url'], driver)
-            await common.writeScreenshot(common.getImgs(data, 'case_3', 3), driver)
+            await goToEditCourse(dataTeacherEditCourse['edit_course_url'], driver)
+            await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_3', 3), driver)
 
-            await goToEditCourseSetting(data['edit_course_setting_url'], driver)
-            await common.writeScreenshot(common.getImgs(data, 'case_3', 4), driver)
+            await goToEditCourseSetting(dataTeacherEditCourse['edit_course_setting_url'], driver)
+            await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_3', 4), driver)
 
-            await action.findAndSendKeysById('id_fullname', data['case_3']['fullname'], driver)
-            await action.findAndSendKeysById('id_shortname', data['case_3']['shortname'], driver)
-            await action.findAndSendKeysById('id_idnumber', data['case_3']['id_idnumber'], driver)
+            await action.findAndSendKeysById('id_fullname', dataTeacherEditCourse['case_3']['fullname'], driver)
+            await action.findAndSendKeysById('id_shortname', dataTeacherEditCourse['case_3']['shortname'], driver)
+            await action.findAndSendKeysById('id_idnumber', dataTeacherEditCourse['case_3']['id_idnumber'], driver)
 
-            await common.writeScreenshot(common.getImgs(data, 'case_3', 5), driver)
+            await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_3', 5), driver)
 
             await action.findAndClickById('id_saveanddisplay', driver);
-            await common.writeScreenshot(common.getImgs(data, 'case_3', 6), driver)
+            await common.writeScreenshot(common.getImgs(dataTeacherEditCourse, 'case_3', 6), driver)
 
         } catch (err) {
-            console.log(err);
+            
             throw err
         }
         await common.sleep(5)

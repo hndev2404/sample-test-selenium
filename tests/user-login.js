@@ -6,7 +6,7 @@ var common = require("../helpers/common.js");
 var { getDriverConfig } = require("../helpers/drivers.js");
 const { doLogin, doLogout } = require("../action/index.js");
 
-data = common.loadJson('data/user-login.json')
+dataUserLogin = common.loadJson('data/user-login.json')
 
 const verifyTitleName = async (expectedTitleName, driver) => {
     common.logAction("verifyTitleName");
@@ -19,90 +19,90 @@ const verifyTitleName = async (expectedTitleName, driver) => {
     expect(titleName).contains(expectedTitleName);
 };
 
-test.describe(common.getTestCaseName(data['user_type'], data['action']), async function () {
+test.describe(common.getTestCaseName(dataUserLogin['user_type'], dataUserLogin['action']), async function () {
     this.timeout("60000");
     test.before(async function () {
-        csvData = await common.loadCsv("data/user-login.csv");
+        csvData = await common.loadCsv("dataUserLogin/user-login.csv");
     });
 
-    test.it(data['case_1']['name'], async function () {
+    test.it(dataUserLogin['case_1']['name'], async function () {
         const driver = getDriverConfig(BROWSER);
         await driver.get(BASE_URL);
-        await common.writeScreenshot(common.getImgs(data, 'case_1', 1), driver)
+        await common.writeScreenshot(common.getImgs(dataUserLogin, 'case_1', 1), driver)
 
         try {
-            await doLogin(data['case_1']['username'], data['case_1']['password'], driver);
-            await verifyTitleName(data['case_1']['expected_name'], driver);
-            await common.writeScreenshot(common.getImgs(data, 'case_1', 2), driver)
+            await doLogin(dataUserLogin['case_1']['username'], dataUserLogin['case_1']['password'], driver);
+            await verifyTitleName(dataUserLogin['case_1']['expected_name'], driver);
+            await common.writeScreenshot(common.getImgs(dataUserLogin, 'case_1', 2), driver)
 
             await doLogout(driver);
-            await common.writeScreenshot(common.getImgs(data, 'case_1', 3), driver)
+            await common.writeScreenshot(common.getImgs(dataUserLogin, 'case_1', 3), driver)
 
         } catch (err) {
-            console.log(err);
+            
             throw err
         }
 
         await driver.quit();
     });
 
-    test.it(data['case_2']['name'], async function () {
+    test.it(dataUserLogin['case_2']['name'], async function () {
         const driver = getDriverConfig(BROWSER);
         await driver.get(BASE_URL);
-        await common.writeScreenshot(common.getImgs(data, 'case_2', 1), driver)
+        await common.writeScreenshot(common.getImgs(dataUserLogin, 'case_2', 1), driver)
 
         try {
-            await doLogin(data['case_2']['username'], data['case_2']['password'], driver);
-            await verifyTitleName(data['case_2']['expected_name'], driver);
-            await common.writeScreenshot(common.getImgs(data, 'case_2', 2), driver)
+            await doLogin(dataUserLogin['case_2']['username'], dataUserLogin['case_2']['password'], driver);
+            await verifyTitleName(dataUserLogin['case_2']['expected_name'], driver);
+            await common.writeScreenshot(common.getImgs(dataUserLogin, 'case_2', 2), driver)
 
             await doLogout(driver);
-            await common.writeScreenshot(common.getImgs(data, 'case_2', 3), driver)
+            await common.writeScreenshot(common.getImgs(dataUserLogin, 'case_2', 3), driver)
 
         } catch (err) {
-            console.log(err);
+            
             throw err
         }
 
         await driver.quit();
     });
 
-    test.it(data['case_3']['name'], async function () {
+    test.it(dataUserLogin['case_3']['name'], async function () {
         const driver = getDriverConfig(BROWSER);
         await driver.get(BASE_URL);
-        await common.writeScreenshot(common.getImgs(data, 'case_3', 1), driver)
+        await common.writeScreenshot(common.getImgs(dataUserLogin, 'case_3', 1), driver)
 
         try {
-            await doLogin(data['case_3']['username'], data['case_3']['password'], driver);
-            await verifyTitleName(data['case_3']['expected_name'], driver);
-            await common.writeScreenshot(common.getImgs(data, 'case_3', 2), driver)
+            await doLogin(dataUserLogin['case_3']['username'], dataUserLogin['case_3']['password'], driver);
+            await verifyTitleName(dataUserLogin['case_3']['expected_name'], driver);
+            await common.writeScreenshot(common.getImgs(dataUserLogin, 'case_3', 2), driver)
 
             await doLogout(driver);
-            await common.writeScreenshot(common.getImgs(data, 'case_3', 3), driver)
+            await common.writeScreenshot(common.getImgs(dataUserLogin, 'case_3', 3), driver)
 
         } catch (err) {
-            console.log(err);
+            
             throw err
         }
 
         await driver.quit();
     });
 
-    test.it(data['case_4']['name'], async function () {
+    test.it(dataUserLogin['case_4']['name'], async function () {
         const driver = getDriverConfig(BROWSER);
         await driver.get(BASE_URL);
-        await common.writeScreenshot(common.getImgs(data, 'case_4', 1), driver)
+        await common.writeScreenshot(common.getImgs(dataUserLogin, 'case_4', 1), driver)
 
         try {
-            await doLogin(data['case_4']['username'], data['case_4']['password'], driver);
-            await verifyTitleName(data['case_4']['expected_name'], driver);
-            await common.writeScreenshot(common.getImgs(data, 'case_4', 2), driver)
+            await doLogin(dataUserLogin['case_4']['username'], dataUserLogin['case_4']['password'], driver);
+            await verifyTitleName(dataUserLogin['case_4']['expected_name'], driver);
+            await common.writeScreenshot(common.getImgs(dataUserLogin, 'case_4', 2), driver)
 
             await doLogout(driver);
-            await common.writeScreenshot(common.getImgs(data, 'case_4', 3), driver)
+            await common.writeScreenshot(common.getImgs(dataUserLogin, 'case_4', 3), driver)
 
         } catch (err) {
-            console.log(err);
+            
             throw err
         }
 
