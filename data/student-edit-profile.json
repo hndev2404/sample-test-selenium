@@ -1,4 +1,6 @@
 {
+    "user_type": "Student",
+    "action": "Edit Profile",
     "account": {
         "username": "student",
         "password": "sandbox24"

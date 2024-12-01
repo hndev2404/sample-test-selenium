@@ -22,7 +22,6 @@ const verifyTitleName = async (expectedTitleName, driver) => {
 test.describe(common.getTestCaseName(dataUserLogin['user_type'], dataUserLogin['action']), async function () {
     this.timeout("60000");
     test.before(async function () {
-        csvData = await common.loadCsv("dataUserLogin/user-login.csv");
     });
 
     test.it(dataUserLogin['case_1']['name'], async function () {

@@ -45,7 +45,7 @@ const verifyValueOfEmailAddress = async (expectedValue, driver) => {
     common.logAction("verifyValueOfEmailAddress");
     common.logData("Expected", expectedValue);
     let emailPendingDiv = await driver.wait(
-        until.elementLocated(By.css('div.form-control-static[dataStudentEditProfile-name="emailpending"]')),
+        until.elementLocated(By.css('div.form-control-static[data-name="emailpending"]')),
         5000 // Timeout after 5 seconds
     );
 

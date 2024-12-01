@@ -1,0 +1,134 @@
+<testsuite name="Mocha Tests" tests="20" failures="7" errors="7" skipped="-1" timestamp="Sun, 01 Dec 2024 20:26:37 GMT" time="468.237">
+<testcase classname="Testcase: Manager-Add Permission" name="Add Normal Permission" time="16.267"><failure>no such element: Unable to locate element: {&#x22;method&#x22;:&#x22;css selector&#x22;,&#x22;selector&#x22;:&#x22;*[id=&#x22;id_submitbutton&#x22;]&#x22;}
+  (Session info: chrome=131.0.6778.85)
+  (Driver info: chromedriver=131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285}),platform=Linux 6.8.0-49-generic x86_64)
+NoSuchElementError: no such element: Unable to locate element: {&#x22;method&#x22;:&#x22;css selector&#x22;,&#x22;selector&#x22;:&#x22;*[id=&#x22;id_submitbutton&#x22;]&#x22;}
+  (Session info: chrome=131.0.6778.85)
+  (Driver info: chromedriver=131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285}),platform=Linux 6.8.0-49-generic x86_64)
+    at Object.checkLegacyResponse (node_modules/selenium-webdriver/lib/error.js:529:15)
+    at parseHttpResponse (node_modules/selenium-webdriver/lib/http.js:509:13)
+    at node_modules/selenium-webdriver/lib/http.js:441:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+From: Task: WebDriver.findElement(By(css selector, *[id=&#x22;id_submitbutton&#x22;]))
+    at thenableWebDriverProxy.schedule (node_modules/selenium-webdriver/lib/webdriver.js:807:17)
+    at thenableWebDriverProxy.findElement (node_modules/selenium-webdriver/lib/webdriver.js:1014:17)
+    at Object.findAndClickById (action/index.js:56:30)
+    at Context.&#x3C;anonymous&#x3E; (tests/manager_add_permission.js:42:26)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+From: Task: Testcase: Manager-Add Permission Add Normal Permission
+    at Context.ret (node_modules/selenium-webdriver/testing/index.js:183:10)
+    at process.processImmediate (node:internal/timers:511:21)</failure></testcase>
+<testcase classname="Testcase: Manager-Add Permission" name="Add Permission With Full Context types" time="26.212"/>
+<testcase classname="Testcase: Manager-Add Permission" name="Add Permission With The Same Shortname with Manager" time="25.366"/>
+<testcase classname="Testcase: Manager-Create Course" name="Create Course - Not fill &#x27;Course full name&#x27;" time="21.671"/>
+<testcase classname="Testcase: Manager-Create Course" name="Create Course - Not fill &#x27;Course short name&#x27;" time="23.885"/>
+<testcase classname="Testcase: Manager-Create Course" name="Create Course" time="31.463"/>
+<testcase classname="Testcase: Manager-Create Course" name="Create Course Category - Not fill &#x27;Category name&#x27;" time="25.601"/>
+<testcase classname="Testcase: Manager-Create Course" name="Create Course Category - With Name &#x26; ID" time="26.536"/>
+<testcase classname="Testcase: Manager-Create Course" name="Create Course Category - With Name &#x26; ID" time="27.224"/>
+<testcase classname="Testcase: Manager-Edit Permission" name="Edit Role - Short name &#x26; Full name" time="25.104"/>
+<testcase classname="Testcase: Manager-Edit Permission" name="Edit Role - Description" time="25.908"/>
+<testcase classname="Testcase: Manager-Edit Permission" name="Edit Role - Context types where this role may be assigned" time="28.585"/>
+<testcase classname="Testcase: Manager-Edit Permission" name="Edit Role - Allow role assignments" time="27.63"/>
+<testcase classname="Testcase: undefined-undefined" name="Update Firstname &#x26; Lastname" time="27.894"/>
+<testcase classname="Testcase: undefined-undefined" name="Update Email" time="14.521"><failure>no such element: Unable to locate element: {&#x22;method&#x22;:&#x22;css selector&#x22;,&#x22;selector&#x22;:&#x22;*[id=&#x22;username&#x22;]&#x22;}
+  (Session info: chrome=131.0.6778.85)
+  (Driver info: chromedriver=131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285}),platform=Linux 6.8.0-49-generic x86_64)
+NoSuchElementError: no such element: Unable to locate element: {&#x22;method&#x22;:&#x22;css selector&#x22;,&#x22;selector&#x22;:&#x22;*[id=&#x22;username&#x22;]&#x22;}
+  (Session info: chrome=131.0.6778.85)
+  (Driver info: chromedriver=131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285}),platform=Linux 6.8.0-49-generic x86_64)
+    at Object.checkLegacyResponse (node_modules/selenium-webdriver/lib/error.js:529:15)
+    at parseHttpResponse (node_modules/selenium-webdriver/lib/http.js:509:13)
+    at node_modules/selenium-webdriver/lib/http.js:441:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+From: Task: WebDriver.findElement(By(css selector, *[id=&#x22;username&#x22;]))
+    at thenableWebDriverProxy.schedule (node_modules/selenium-webdriver/lib/webdriver.js:807:17)
+    at thenableWebDriverProxy.findElement (node_modules/selenium-webdriver/lib/webdriver.js:1014:17)
+    at findAndSendKeysById (action/index.js:45:32)
+    at exports.doLogin (action/index.js:86:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Context.&#x3C;anonymous&#x3E; (tests/student-edit-profile.js:143:13)
+From: Task: Testcase: undefined-undefined Update Email
+    at Context.ret (node_modules/selenium-webdriver/testing/index.js:183:10)
+    at process.processImmediate (node:internal/timers:511:21)</failure></testcase>
+<testcase classname="Testcase: undefined-undefined" name="Update City/town" time="30.415"/>
+<testcase classname="Testcase: undefined-undefined" name="Update Description" time="20.265"><failure>element not interactable
+  (Session info: chrome=131.0.6778.85)
+  (Driver info: chromedriver=131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285}),platform=Linux 6.8.0-49-generic x86_64)
+ElementNotVisibleError: element not interactable
+  (Session info: chrome=131.0.6778.85)
+  (Driver info: chromedriver=131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285}),platform=Linux 6.8.0-49-generic x86_64)
+    at Object.checkLegacyResponse (node_modules/selenium-webdriver/lib/error.js:529:15)
+    at parseHttpResponse (node_modules/selenium-webdriver/lib/http.js:509:13)
+    at node_modules/selenium-webdriver/lib/http.js:441:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+From: Task: WebElement.clear()
+    at thenableWebDriverProxy.schedule (node_modules/selenium-webdriver/lib/webdriver.js:807:17)
+    at WebElement.schedule_ (node_modules/selenium-webdriver/lib/webdriver.js:2015:25)
+    at WebElement.clear (node_modules/selenium-webdriver/lib/webdriver.js:2355:17)
+    at Object.findAndSendKeysById (action/index.js:47:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Context.&#x3C;anonymous&#x3E; (tests/student-edit-profile.js:247:13)
+From: Task: Testcase: undefined-undefined Update Description
+    at Context.ret (node_modules/selenium-webdriver/testing/index.js:183:10)
+    at process.processImmediate (node:internal/timers:511:21)</failure></testcase>
+<testcase classname="Testcase: Teacher-Edit Course" name="Edit Course with full name is empty" time="11.045"><failure>no such element: Unable to locate element: {&#x22;method&#x22;:&#x22;css selector&#x22;,&#x22;selector&#x22;:&#x22;*[id=&#x22;id_fullname&#x22;]&#x22;}
+  (Session info: chrome=131.0.6778.85)
+  (Driver info: chromedriver=131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285}),platform=Linux 6.8.0-49-generic x86_64)
+NoSuchElementError: no such element: Unable to locate element: {&#x22;method&#x22;:&#x22;css selector&#x22;,&#x22;selector&#x22;:&#x22;*[id=&#x22;id_fullname&#x22;]&#x22;}
+  (Session info: chrome=131.0.6778.85)
+  (Driver info: chromedriver=131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285}),platform=Linux 6.8.0-49-generic x86_64)
+    at Object.checkLegacyResponse (node_modules/selenium-webdriver/lib/error.js:529:15)
+    at parseHttpResponse (node_modules/selenium-webdriver/lib/http.js:509:13)
+    at node_modules/selenium-webdriver/lib/http.js:441:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+From: Task: WebDriver.findElement(By(css selector, *[id=&#x22;id_fullname&#x22;]))
+    at thenableWebDriverProxy.schedule (node_modules/selenium-webdriver/lib/webdriver.js:807:17)
+    at thenableWebDriverProxy.findElement (node_modules/selenium-webdriver/lib/webdriver.js:1014:17)
+    at Object.findAndSendKeysById (action/index.js:45:32)
+    at Context.&#x3C;anonymous&#x3E; (tests/teacher_edit_course.js:48:26)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+From: Task: Testcase: Teacher-Edit Course Edit Course with full name is empty
+    at Context.ret (node_modules/selenium-webdriver/testing/index.js:183:10)
+    at process.processImmediate (node:internal/timers:511:21)</failure></testcase>
+<testcase classname="Testcase: Teacher-Edit Course" name="Edit Course with short name is empty" time="17.531"><failure>no such element: Unable to locate element: {&#x22;method&#x22;:&#x22;css selector&#x22;,&#x22;selector&#x22;:&#x22;*[id=&#x22;id_fullname&#x22;]&#x22;}
+  (Session info: chrome=131.0.6778.85)
+  (Driver info: chromedriver=131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285}),platform=Linux 6.8.0-49-generic x86_64)
+NoSuchElementError: no such element: Unable to locate element: {&#x22;method&#x22;:&#x22;css selector&#x22;,&#x22;selector&#x22;:&#x22;*[id=&#x22;id_fullname&#x22;]&#x22;}
+  (Session info: chrome=131.0.6778.85)
+  (Driver info: chromedriver=131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285}),platform=Linux 6.8.0-49-generic x86_64)
+    at Object.checkLegacyResponse (node_modules/selenium-webdriver/lib/error.js:529:15)
+    at parseHttpResponse (node_modules/selenium-webdriver/lib/http.js:509:13)
+    at node_modules/selenium-webdriver/lib/http.js:441:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+From: Task: WebDriver.findElement(By(css selector, *[id=&#x22;id_fullname&#x22;]))
+    at thenableWebDriverProxy.schedule (node_modules/selenium-webdriver/lib/webdriver.js:807:17)
+    at thenableWebDriverProxy.findElement (node_modules/selenium-webdriver/lib/webdriver.js:1014:17)
+    at Object.findAndSendKeysById (action/index.js:45:32)
+    at Context.&#x3C;anonymous&#x3E; (tests/teacher_edit_course.js:84:26)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+From: Task: Testcase: Teacher-Edit Course Edit Course with short name is empty
+    at Context.ret (node_modules/selenium-webdriver/testing/index.js:183:10)
+    at process.processImmediate (node:internal/timers:511:21)</failure></testcase>
+<testcase classname="Testcase: Teacher-Edit Course" name="Edit Course Name" time="15.065"><failure>no such element: Unable to locate element: {&#x22;method&#x22;:&#x22;css selector&#x22;,&#x22;selector&#x22;:&#x22;*[id=&#x22;id_fullname&#x22;]&#x22;}
+  (Session info: chrome=131.0.6778.85)
+  (Driver info: chromedriver=131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285}),platform=Linux 6.8.0-49-generic x86_64)
+NoSuchElementError: no such element: Unable to locate element: {&#x22;method&#x22;:&#x22;css selector&#x22;,&#x22;selector&#x22;:&#x22;*[id=&#x22;id_fullname&#x22;]&#x22;}
+  (Session info: chrome=131.0.6778.85)
+  (Driver info: chromedriver=131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285}),platform=Linux 6.8.0-49-generic x86_64)
+    at Object.checkLegacyResponse (node_modules/selenium-webdriver/lib/error.js:529:15)
+    at parseHttpResponse (node_modules/selenium-webdriver/lib/http.js:509:13)
+    at node_modules/selenium-webdriver/lib/http.js:441:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+From: Task: WebDriver.findElement(By(css selector, *[id=&#x22;id_fullname&#x22;]))
+    at thenableWebDriverProxy.schedule (node_modules/selenium-webdriver/lib/webdriver.js:807:17)
+    at thenableWebDriverProxy.findElement (node_modules/selenium-webdriver/lib/webdriver.js:1014:17)
+    at Object.findAndSendKeysById (action/index.js:45:32)
+    at Context.&#x3C;anonymous&#x3E; (tests/teacher_edit_course.js:120:26)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+From: Task: Testcase: Teacher-Edit Course Edit Course Name
+    at Context.ret (node_modules/selenium-webdriver/testing/index.js:183:10)
+    at process.processImmediate (node:internal/timers:511:21)</failure></testcase>
+<testcase classname="Testcase: User-Login" name="&#x22;before all&#x22; hook: ret" time="0"><failure>ENOENT: no such file or directory, open &#x27;/home/peo/Workspaces/selenium-js-example/dataUserLogin/user-login.csv&#x27;
+Error: ENOENT: no such file or directory, open &#x27;/home/peo/Workspaces/selenium-js-example/dataUserLogin/user-login.csv&#x27;</failure></testcase>
+</testsuite>
