@@ -1,0 +1,29 @@
+{
+    "user_type": "Manager",
+    "action": "Add Permission",
+    "account": {
+        "username": "manager",
+        "password": "sandbox24"
+    },
+    "add_permission": "https://sandbox.moodledemo.net/admin/roles/define.php?action=add",
+    "case_1": {
+        "name": "Add Normal Permission",
+        "shortname": "shortname - #1",
+        "fullname": "fullname #1",
+        "description": "description #1"
+    },
+    "case_2": {
+        "name": "Add Permission With Full Context types",
+        "shortname": "shortname - #2",
+        "fullname": "fullname #2",
+        "description": "description #2"
+    },
+    "case_3": {
+        "name": "Add Permission With The Same Shortname with Manager",
+        "shortname": "manager",
+        "fullname": "fullname #3",
+        "description": "description #3",
+        "expected_err": "Role name already exists"
+    }
+    
+}
