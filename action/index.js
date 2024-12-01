@@ -25,6 +25,17 @@ const findElementsByCss = async(css, driver) => {
 }
 exports.findElementsByCss = findElementsByCss
 
+const findElementsById = async(id, driver) => {
+    driver.wait(function(){
+        return until.elementIsVisible(By.id(id));
+    }, TIMEOUT);
+
+    const eles = await driver.findElements(By.id(id))
+
+    return eles
+}
+exports.findElementsById = findElementsById
+
 const findAndSendKeysById = async (id, value, driver) => {
     common.sleep(3)
     driver.wait(function(){

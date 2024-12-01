@@ -1,0 +1,29 @@
+{
+    "user_type": "Manager",
+    "action": "Edit Permission",
+    "account": {
+        "username": "manager",
+        "password": "sandbox24"
+    },
+    "define_role_url": "https://sandbox.moodledemo.net/admin/roles/manage.php",
+    "edit_define_role_url": "https://sandbox.moodledemo.net/admin/roles/define.php?action=edit&roleid=",
+    "case_1": {
+        "name": "Edit Role - Short name & Full name",
+        "role_id": 5,
+        "short_name": "non-member",
+        "full_name": "Non-Member"
+    },
+    "case_2": {
+        "name": "Edit Role - Description",
+        "role_id": 5,
+        "description": "TEST - USER IS NOT MEMBER"
+    },
+    "case_3": {
+        "name": "Edit Role - Context types where this role may be assigned",
+        "role_id": 5
+    },
+    "case_4": {
+        "name": "Edit Role - Allow role assignments",
+        "role_id": 5
+    }
+}

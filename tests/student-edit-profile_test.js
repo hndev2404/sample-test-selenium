@@ -29,7 +29,7 @@ const verifyFullname = async (expectedFullname, driver) => {
         .findElement(By.css("h1.h2.mb-0"))
         .getText();
     common.logData("Actual", fullname)
-    expect(fullname).contains(expectedFullname, "OK");
+    expect(fullname).contains(expectedFullname);
 };
 
 
@@ -39,7 +39,7 @@ const verifyShowConfirmEmail = async (expectedConfirmEmail, driver) => {
     const notice = await driver.findElement(By.id("notice")).getText();
 
     common.logData("Actual", notice)
-    expect(notice).contains(expectedConfirmEmail, "OK");
+    expect(notice).contains(expectedConfirmEmail);
 };
 
 const verifyValueOfEmailAddress = async (expectedValue, driver) => {
@@ -53,7 +53,7 @@ const verifyValueOfEmailAddress = async (expectedValue, driver) => {
     // Get the text inside the div
     let text = await emailPendingDiv.getText();
     common.logData("Actual", text)
-    expect(text).contains(expectedValue, "OK");
+    expect(text).contains(expectedValue);
 };
 
 const verifyCity = async (expectedValue, driver) => {
@@ -72,7 +72,7 @@ const verifyCity = async (expectedValue, driver) => {
             let cityText = await ddElement.getText();
 
             common.logData("Actual", cityText)
-            expect(cityText, "City is correct!").contains(expectedValue, "OK");
+            expect(cityText, "City is correct!").contains(expectedValue);
             break; // Stop once we find the correct city
         }
     }
@@ -88,7 +88,7 @@ const verifyDescription = async (expectedValue, driver) => {
 
     let text = await descDiv.getText();
     common.logData("Actual", text)
-    expect(text).contains(expectedValue, "OK");
+    expect(text).contains(expectedValue);
 };
 test.describe(TEST_CASE, async function () {
     this.timeout("60000");
@@ -117,6 +117,7 @@ test.describe(TEST_CASE, async function () {
             await verifyFullname(data['case_1']['expected_fullname'], driver)
         } catch (err) {
             console.log(err);
+            throw err
         }
         common.sleep(5)
         await driver.quit();
@@ -151,9 +152,11 @@ test.describe(TEST_CASE, async function () {
             await verifyValueOfEmailAddress(data['case_2']['expected_value_email'], driver)
             await action.findAndClickByLinkText('Cancel email change', driver)
             common.logAction("submit")
+            await action.findAndClickById('id_submitbutton', driver)
 
         } catch (err) {
             console.log(err);
+            throw err
         }
         common.sleep(5)
         await driver.quit();
@@ -180,6 +183,7 @@ test.describe(TEST_CASE, async function () {
             await verifyCity(data['case_3']['city'], driver)
         } catch (err) {
             console.log(err);
+            throw err
         }
         common.sleep(5)
         await driver.quit();
@@ -206,6 +210,7 @@ test.describe(TEST_CASE, async function () {
             await verifyDescription(data['case_4']['description'], driver)
         } catch (err) {
             console.log(err);
+            throw err
         }
         common.sleep(5)
         await driver.quit();

@@ -29,11 +29,15 @@ exports.loadJson = (filePath) => {
 }
 
 exports.logAction = (mes) => {
-    console.log("       🚀 Action: ", mes)
+    console.log("       🚀 Action:", mes)
 }
 
 exports.logData = (label, data) => {
-    console.log("       ⚡️  ", label, ": \t\t", data)
+    console.log("       ⚡️  ", label, ":\t\t", data)
+}
+
+exports.logCheckBox = (label, isChecked) => {
+    console.log(`           ⚡️  Checkbox label: ${label.padEnd(20)} ,Is checked: ${isChecked}`);
 }
 
 exports.sleep = (seconds) => {

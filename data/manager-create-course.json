@@ -1,0 +1,28 @@
+{
+    "user_type": "Manager",
+    "action": "Create Course",
+    "account": {
+        "username": "manager",
+        "password": "sandbox24"
+    },
+    "create_course_url": "https://sandbox.moodledemo.net/course/edit.php",
+    
+    "case_1": {
+        "name": "Create Course - Not fill 'Course full name'",
+        "full_name": "",
+        "short_name": "test course short name",
+        "expected_err": "- Missing full name"
+    },
+    "case_2": {
+        "name": "Create Course - Not fill 'Course short name'",
+        "full_name": "Test course full name",
+        "short_name": "",
+        "expected_err": "- Missing short name"
+
+    },
+    "case_3": {
+        "name": "Create Course'",
+        "full_name": "Test course full name",
+        "short_name": "test course short name"
+    }
+}
