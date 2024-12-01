@@ -1,0 +1,7 @@
+node_modules/*
+npm-debug.log
+*.orig
+*.png
+*.xml
+screenshot-*.png
+chromedriver
