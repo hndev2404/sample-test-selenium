@@ -6,6 +6,10 @@ exports.getTestCaseName = function getTestCaseName(userType, action) {
     return `Testcase: ${userType}-${action}`;
 }
 
+exports.getImgs = function getImgs(data, case_idx, step) {
+    return `imgs/${data['user_type']}-${data['action']}-${case_idx}-step-${step}.png`;
+}
+
 exports.loadCsv = (filePath) => {
     return new Promise((resolve, reject) => {
         const results = [];
@@ -42,4 +46,13 @@ exports.logCheckBox = (label, isChecked) => {
 
 exports.sleep = (seconds) => {
     return new Promise(resolve => setTimeout(resolve, seconds * 1000));
+};
+
+exports.writeScreenshot = async (name, driver) => {
+    driver.takeScreenshot().then(function(data) {
+        name = name || 'ss.png';
+        var screenshotPath = __dirname.replace("helpers","");
+        var screenshotRoute = screenshotPath + name + ".png";
+        fs.writeFileSync(screenshotRoute, data, 'base64');
+    });
 };

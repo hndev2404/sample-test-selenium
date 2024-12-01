@@ -6,10 +6,15 @@ var common = require("../helpers/common.js");
 var { getDriverConfig } = require("../helpers/drivers.js");
 const action = require("../action/index.js");
 
-data = common.loadJson('data/manager-add-permission.json')
+data = common.loadJson('data/teacher-edit-course.json')
 
-const goToAddPermission = (url, driver) => {
-    common.logAction("goToAddPermission " + url)
+const goToEditCourse = (url, driver) => {
+    common.logAction("goToEditCourse " + url)
+    driver.get(url)
+}
+
+const goToEditCourseSetting = (url, driver) => {
+    common.logAction("goToEditCourseSetting " + url)
     driver.get(url)
 }
 
@@ -17,7 +22,7 @@ const verifyErr = async (action, expectedErr, actualErr, driver) => {
     common.logAction(action);
     common.logData("Expected", expectedErr);
     common.logData("Actual", actualErr)
-    expect(actualErr).to.be.equals(expectedErr);
+    expect(actualErr).contains(expectedErr);
 };
 
 
@@ -35,22 +40,23 @@ test.describe(common.getTestCaseName(data['user_type'], data['action']), async f
             await action.doLogin(data.account.username, data.account.password, driver);
             await common.writeScreenshot(common.getImgs(data, 'case_1', 2), driver)
 
-            await goToAddPermission(data['add_permission'], driver)
+            await goToEditCourse(data['edit_course_url'], driver)
             await common.writeScreenshot(common.getImgs(data, 'case_1', 3), driver)
-
-            common.logAction("Continue")
-            await action.findAndClickById('id_submitbutton', driver);
+            await goToEditCourseSetting(data['edit_course_setting_url'], driver)
             await common.writeScreenshot(common.getImgs(data, 'case_1', 4), driver)
 
-            await action.findAndSendKeysById('shortname', data['case_1']['shortname'], driver)
-            await action.findAndSendKeysById('name', data['case_1']['fullname'], driver)
-            await action.findAndSendKeysById('description', data['case_1']['description'], driver)
+            await action.findAndSendKeysById('id_fullname', data['case_1']['fullname'], driver)
+            await action.findAndSendKeysById('id_shortname', data['case_1']['shortname'], driver)
+            await action.findAndSendKeysById('id_idnumber', data['case_1']['id_idnumber'], driver)
             await common.writeScreenshot(common.getImgs(data, 'case_1', 5), driver)
 
-            common.logAction("Submit")
-            await action.findAndClickByCss('input[type="submit"].btn.btn-primary', driver);
+            await action.findAndClickById('id_saveanddisplay', driver);
             await common.writeScreenshot(common.getImgs(data, 'case_1', 6), driver)
 
+            let errFullname = await driver.findElement(By.id('id_error_fullname'));
+            let errFullnameText = await errFullname.getText();
+            verifyErr("verifyFullnameError", data['case_1']['expected_err'], errFullnameText, driver)
+            await common.writeScreenshot(common.getImgs(data, 'case_1', 7), driver)
 
         } catch (err) {
             console.log(err);
@@ -69,31 +75,24 @@ test.describe(common.getTestCaseName(data['user_type'], data['action']), async f
             await action.doLogin(data.account.username, data.account.password, driver);
             await common.writeScreenshot(common.getImgs(data, 'case_2', 2), driver)
 
-            await goToAddPermission(data['add_permission'], driver)
+            await goToEditCourse(data['edit_course_url'], driver)
             await common.writeScreenshot(common.getImgs(data, 'case_2', 3), driver)
 
-            common.logAction("Continue")
-            await action.findAndClickById('id_submitbutton', driver);
+            await goToEditCourseSetting(data['edit_course_setting_url'], driver)
             await common.writeScreenshot(common.getImgs(data, 'case_2', 4), driver)
 
-            await action.findAndSendKeysById('shortname', data['case_2']['shortname'], driver)
-            await action.findAndSendKeysById('name', data['case_2']['fullname'], driver)
-            await action.findAndSendKeysById('description', data['case_2']['description'], driver)
+            await action.findAndSendKeysById('id_fullname', data['case_2']['fullname'], driver)
+            await action.findAndSendKeysById('id_shortname', data['case_2']['shortname'], driver)
+            await action.findAndSendKeysById('id_idnumber', data['case_2']['id_idnumber'], driver)
+
             await common.writeScreenshot(common.getImgs(data, 'case_2', 5), driver)
 
-            common.logAction("checkAllCheckboxes")
-            const checkboxes = await driver.findElements(By.css('input.form-check-input[type="checkbox"]'));
-            for (const checkbox of checkboxes) {
-                const isChecked = await checkbox.isSelected();
-                if (!isChecked) {
-                    await checkbox.click();
-                }
-            }
+            await action.findAndClickById('id_saveanddisplay', driver);
 
-            common.logAction("Submit")
-            await action.findAndClickByCss('input[type="submit"].btn.btn-primary', driver);
+            let errFullname = await driver.findElement(By.id('id_error_shortname'));
+            let errFullnameText = await errFullname.getText();
+            verifyErr("verifyFullnameError", data['case_1']['expected_err'], errFullnameText, driver)
             await common.writeScreenshot(common.getImgs(data, 'case_2', 6), driver)
-
 
         } catch (err) {
             console.log(err);
@@ -102,7 +101,6 @@ test.describe(common.getTestCaseName(data['user_type'], data['action']), async f
         await common.sleep(5)
         await driver.quit();
     });
-
 
     test.it(data['case_3']['name'], async function () {
         const driver = getDriverConfig(BROWSER);
@@ -113,39 +111,26 @@ test.describe(common.getTestCaseName(data['user_type'], data['action']), async f
             await action.doLogin(data.account.username, data.account.password, driver);
             await common.writeScreenshot(common.getImgs(data, 'case_3', 2), driver)
 
-            await goToAddPermission(data['add_permission'], driver)
+            await goToEditCourse(data['edit_course_url'], driver)
             await common.writeScreenshot(common.getImgs(data, 'case_3', 3), driver)
 
-            common.logAction("Continue")
-            await action.findAndClickById('id_submitbutton', driver);
+            await goToEditCourseSetting(data['edit_course_setting_url'], driver)
             await common.writeScreenshot(common.getImgs(data, 'case_3', 4), driver)
 
-            await action.findAndSendKeysById('shortname', data['case_3']['shortname'], driver)
-            await action.findAndSendKeysById('name', data['case_3']['fullname'], driver)
-            await action.findAndSendKeysById('description', data['case_3']['description'], driver)
+            await action.findAndSendKeysById('id_fullname', data['case_3']['fullname'], driver)
+            await action.findAndSendKeysById('id_shortname', data['case_3']['shortname'], driver)
+            await action.findAndSendKeysById('id_idnumber', data['case_3']['id_idnumber'], driver)
+
             await common.writeScreenshot(common.getImgs(data, 'case_3', 5), driver)
 
-            common.logAction("checkAllCheckboxes")
-            const checkboxes = await driver.findElements(By.css('input.form-check-input[type="checkbox"]'));
-            for (const checkbox of checkboxes) {
-                const isChecked = await checkbox.isSelected();
-                if (!isChecked) {
-                    await checkbox.click();
-                }
-            }
-
-            common.logAction("Submit")
-            await action.findAndClickByCss('input[type="submit"].btn.btn-primary', driver);
+            await action.findAndClickById('id_saveanddisplay', driver);
             await common.writeScreenshot(common.getImgs(data, 'case_3', 6), driver)
 
-            const errorElement = await driver.findElement(By.css('span.error'));
-            const errorMessage = await errorElement.getText();
-            verifyErr("verifyError", data['case_3']['expected_err'], errorMessage, driver)
         } catch (err) {
             console.log(err);
             throw err
         }
         await common.sleep(5)
-        // await driver.quit();
+        await driver.quit();
     });
 })

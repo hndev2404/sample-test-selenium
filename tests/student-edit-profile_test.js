@@ -98,11 +98,17 @@ test.describe(TEST_CASE, async function () {
     test.it(data['case_1']['name'], async function () {
         const driver = getDriverConfig(BROWSER);
         await driver.get(BASE_URL);
+        await common.writeScreenshot(common.getImgs(data, 'case_1', 1), driver)
 
         try {
             await action.doLogin(data.account.username, data.account.password, driver);
+            await common.writeScreenshot(common.getImgs(data, 'case_1', 2), driver)
+
             await goToProfile(driver)
+            await common.writeScreenshot(common.getImgs(data, 'case_1', 3), driver)
+
             await goToEditProfile(driver)
+            await common.writeScreenshot(common.getImgs(data, 'case_1', 4), driver)
 
             common.logAction("updateProfile")
             common.logData("first_name", data['case_1']['first_name'])
@@ -110,11 +116,14 @@ test.describe(TEST_CASE, async function () {
 
             await action.findAndSendKeysById('id_firstname', data['case_1']['first_name'], driver)
             await action.findAndSendKeysById('id_lastname', data['case_1']['last_name'], driver)
+            await common.writeScreenshot(common.getImgs(data, 'case_1', 5), driver)
 
             common.logAction("submit")
             await action.findAndClickById('id_submitbutton', driver)
 
             await verifyFullname(data['case_1']['expected_fullname'], driver)
+            await common.writeScreenshot(common.getImgs(data, 'case_1', 6), driver)
+
         } catch (err) {
             console.log(err);
             throw err
@@ -126,17 +135,24 @@ test.describe(TEST_CASE, async function () {
     test.it(data['case_2']['name'], async function () {
         const driver = getDriverConfig(BROWSER);
         await driver.get(BASE_URL);
+        await common.writeScreenshot(common.getImgs(data, 'case_2', 1), driver)
 
         try {
             await action.doLogin(data['account']['username'], data['account']['password'], driver);
-            
+            await common.writeScreenshot(common.getImgs(data, 'case_2', 2), driver)
+
             await goToProfile(driver)
+            await common.writeScreenshot(common.getImgs(data, 'case_2', 3), driver)
+
             await goToEditProfile(driver)
+            await common.writeScreenshot(common.getImgs(data, 'case_2', 4), driver)
 
             common.logAction("updateProfile")
             common.logData("email",  data['case_2']['email'])
 
             await action.findAndSendKeysById('id_email', data['case_2']['email'], driver)
+
+            await common.writeScreenshot(common.getImgs(data, 'case_2', 5), driver)
 
             common.logAction("submit")
             await action.findAndClickById('id_submitbutton', driver)
@@ -144,15 +160,24 @@ test.describe(TEST_CASE, async function () {
             common.logAction("verifyAndContinue")
             await verifyShowConfirmEmail(data['case_2']['expected_confirm_email'], driver)
             await action.findAndClickByCss('button[type="submit"].btn.btn-primary', driver);
-            
+            await common.writeScreenshot(common.getImgs(data, 'case_2', 6), driver)
+
             common.sleep(3)
             await goToEditProfile(driver)
- 
+            await common.writeScreenshot(common.getImgs(data, 'case_2', 7), driver)
+
             common.logAction("cancelEmailChange")
             await verifyValueOfEmailAddress(data['case_2']['expected_value_email'], driver)
+
+            await common.writeScreenshot(common.getImgs(data, 'case_2', 8), driver)
+
             await action.findAndClickByLinkText('Cancel email change', driver)
+
+            await common.writeScreenshot(common.getImgs(data, 'case_2', 9), driver)
+
             common.logAction("submit")
             await action.findAndClickById('id_submitbutton', driver)
+            await common.writeScreenshot(common.getImgs(data, 'case_2', 10), driver)
 
         } catch (err) {
             console.log(err);
@@ -165,22 +190,32 @@ test.describe(TEST_CASE, async function () {
     test.it(data['case_3']['name'], async function () {
         const driver = getDriverConfig(BROWSER);
         await driver.get(BASE_URL);
+        await common.writeScreenshot(common.getImgs(data, 'case_3', 1), driver)
 
         try {
             await action.doLogin(data['account']['username'], data['account']['password'], driver);
-            
+            await common.writeScreenshot(common.getImgs(data, 'case_3', 2), driver)
+
             await goToProfile(driver)
+            await common.writeScreenshot(common.getImgs(data, 'case_3', 3), driver)
+
             await goToEditProfile(driver)
+            await common.writeScreenshot(common.getImgs(data, 'case_3', 4), driver)
+
 
             common.logAction("updateProfile")
             common.logData("city",  data['case_3']['city'])
 
             await action.findAndSendKeysById('id_city', data['case_3']['city'], driver)
+            await common.writeScreenshot(common.getImgs(data, 'case_3', 5), driver)
 
             common.logAction("submit")
             await action.findAndClickById('id_submitbutton', driver)
+            await common.writeScreenshot(common.getImgs(data, 'case_3', 6), driver)
 
             await verifyCity(data['case_3']['city'], driver)
+            await common.writeScreenshot(common.getImgs(data, 'case_3', 7), driver)
+
         } catch (err) {
             console.log(err);
             throw err
@@ -192,22 +227,30 @@ test.describe(TEST_CASE, async function () {
     test.it(data['case_4']['name'], async function () {
         const driver = getDriverConfig(BROWSER);
         await driver.get(BASE_URL);
+        await common.writeScreenshot(common.getImgs(data, 'case_4', 1), driver)
 
         try {
             await action.doLogin(data['account']['username'], data['account']['password'], driver);
-            
+            await common.writeScreenshot(common.getImgs(data, 'case_4', 2), driver)
+
             await goToProfile(driver)
+            await common.writeScreenshot(common.getImgs(data, 'case_4', 3), driver)
+
             await goToEditProfile(driver)
+            await common.writeScreenshot(common.getImgs(data, 'case_4', 4), driver)
 
             common.logAction("updateProfile")
             common.logData("description",  data['case_4']['description'])
 
             await action.findAndSendKeysById('id_description_editor', data['case_4']['description'], driver)
+            await common.writeScreenshot(common.getImgs(data, 'case_4', 5), driver)
 
             common.logAction("submit")
             await action.findAndClickById('id_submitbutton', driver)
 
             await verifyDescription(data['case_4']['description'], driver)
+            await common.writeScreenshot(common.getImgs(data, 'case_4', 6), driver)
+
         } catch (err) {
             console.log(err);
             throw err

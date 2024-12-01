@@ -1,0 +1,33 @@
+{
+    "user_type": "Teacher",
+    "action": "Edit Course",
+    "account": {
+        "username": "teacher",
+        "password": "sandbox24"
+    },
+    "edit_course_url": "https://sandbox.moodledemo.net/course/view.php?id=2",
+    "edit_course_setting_url": "https://sandbox.moodledemo.net/course/edit.php?id=2",
+    "case_1": {
+        "name": "Edit Course with full name is empty",
+        "shortname": "shortname - #1",
+        "fullname": "",
+        "id_idnumber": "111",
+        "expected_err": "- Missing full name"
+    },
+    "case_2": {
+        "name": "Edit Course with short name is empty",
+        "shortname": "",
+        "fullname": "fullname #2",
+        "id_idnumber": "222",
+        "expected_err": "- Missing short name"
+
+    },
+    "case_3": {
+        "name": "Edit Course Name",
+        "shortname": "shortname #3",
+        "fullname": "fullname #3",
+        "id_idnumber": "333"
+    }
+
+    
+}
