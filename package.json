@@ -20,7 +20,9 @@
   "dependencies": {
     "add-to-path": "^1.1.2",
     "chai": "^4.1.2",
+    "csv-parser": "^3.0.0",
     "dotenv": "^4.0.0",
+    "fs": "^0.0.1-security",
     "selenium-webdriver": "3.5.0"
   },
   "devDependencies": {

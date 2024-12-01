@@ -1,0 +1,5 @@
+case,username,password,expected_title_name
+1,admin,sandbox24,Admin
+2,manager,sandbox24,Max
+3,teacher,sandbox24,Terri
+4,student,sandbox24,Sam

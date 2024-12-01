@@ -1,5 +1,17 @@
 # Selenium JS Example Project
 
+
+```
+Learn the Selenium tool (https://www.selenium.dev) and apply it to project #2.
+
+Three level of automation:
+- Level 1: automation using data-driven testing approach
+- Level 2: Automation using a data-driven testing approach, where test inputs such as site
+URLs and elements like text fields and buttons are provided to the script.
+
+Each student work individually for his/her works of project #2
+```
+
 This is a base project using the [`selenium-webdriver`](http://seleniumhq.github.io/selenium/docs/api/javascript/index.html) for JavaScript and Mocha to handle the tests and reporting.
 
 ## Run Locally
