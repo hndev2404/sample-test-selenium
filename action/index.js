@@ -2,45 +2,51 @@ var common = require("../helpers/common.js");
 var { By, until } = require('selenium-webdriver');
 var common = require("../helpers/common.js");
 
+const TIMEOUT = 60000
+
+const findAndSendKeysById = async (id, value, driver) => {
+    driver.wait(function(){
+        return until.elementIsVisible(By.id(id));
+    }, TIMEOUT);
+
+    const input = await driver.findElement(By.id(id))
+
+    await input.clear()
+    await input.sendKeys(value);
+}
+
+const findAndClickById = async (id, driver) => {
+    driver.wait(function(){
+        return until.elementIsVisible(By.linkText(id));
+    }, TIMEOUT);
+    const ele = await driver.findElement(By.id(id))
+    await ele.click()
+}
+
+const findAndClickByLinkText = async (linkText, driver) => {
+    driver.wait(function(){
+        return until.elementIsVisible(By.linkText(linkText));
+    }, TIMEOUT);
+    const ele = await driver.findElement(By.linkText(linkText))
+    await ele.click()
+}
+
 exports.doLogin = async (username, password, driver) => {
     common.logAction("doLogin")
     common.logData("username", username)
     common.logData("password", password)
 
-    driver.wait(function(){
-        return until.elementIsVisible(By.linkText('Log in'));
-    }, 60000);
-    const loginLink = await driver.findElement(By.linkText('Log in'))
-    await loginLink.click()
+    await findAndClickByLinkText('Log in', driver)
 
-    driver.wait(function(){
-        return until.elementIsVisible(By.id('username'));
-    }, 60000);
+    await findAndSendKeysById('username', username, driver)
+    await findAndSendKeysById('password', password, driver)
 
-    await driver.findElement(By.id('username')).clear()
-    await driver.findElement(By.id('username')).sendKeys(username);
-
-    driver.wait(function(){
-        return until.elementIsVisible(By.id('password'));
-    }, 60000);
-
-    const passwordInput = await driver.findElement(By.id('password'))
-    passwordInput.clear()
-    passwordInput.sendKeys(password);
-
-    driver.wait(function(){
-        return until.elementIsVisible(By.id('loginbtn'));
-    }, 60000);
-    const loginBtn = await driver.findElement(By.id('loginbtn'))
-    await loginBtn.click()
+    await findAndClickById('loginbtn', driver)
 };
 
 exports.doLogout = async (driver) => {
     common.logAction("doLogout")
 
-    const avatarIcon = await driver.findElement(By.id('user-menu-toggle'))
-    await avatarIcon.click()
-
-    const logoutLink = await driver.findElement(By.linkText('Log out'));
-    await logoutLink.click();
+    await findAndClickById('user-menu-toggle', driver)
+    await findAndClickByLinkText('Log out', driver)
 };
