@@ -5,19 +5,22 @@ var expect = require("chai").expect;
 var common = require("../helpers/common.js");
 var { getDriverConfig } = require("../helpers/drivers.js");
 const { doLogin, doLogout } = require("../action/index.js");
+const { error } = require("selenium-webdriver");
 
-const testCase = common.getTestCaseName("User", "Login");
+const TEST_CASE = common.getTestCaseName("User", "Login");
+
 const verifyTitleName = async (expectedTitleName, driver) => {
     common.logAction("verifyTitleName");
-    common.logData("Title Name", expectedTitleName);
+    common.logData("Expected", expectedTitleName);
     const pageHeader = await driver.findElement(By.id("page-header"));
     const titleName = await pageHeader
         .findElement(By.css("h1.h2.mb-3.mt-3"))
         .getText();
+    common.logData("Actual", titleName)
     expect(titleName).contains(expectedTitleName);
 };
 
-test.describe(testCase, async function () {
+test.describe(TEST_CASE, async function () {
     this.timeout("60000");
     test.before(async function () {
         csvData = await common.loadCsv("data/user-login.csv");
@@ -34,6 +37,7 @@ test.describe(testCase, async function () {
             await doLogout(driver);
         } catch (err) {
             console.log(err);
+            throw err
         }
 
         await driver.quit();
@@ -49,6 +53,7 @@ test.describe(testCase, async function () {
             await doLogout(driver);
         } catch (err) {
             console.log(err);
+            throw err
         }
         await driver.quit();
     });
@@ -63,6 +68,7 @@ test.describe(testCase, async function () {
             await doLogout(driver);
         } catch (err) {
             console.log(err);
+            throw err
         }
         await driver.quit();
     });
@@ -77,6 +83,7 @@ test.describe(testCase, async function () {
             await doLogout(driver);
         } catch (err) {
             console.log(err);
+            throw err
         }
         await driver.quit();
     });
