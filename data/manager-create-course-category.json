@@ -1,0 +1,27 @@
+{
+    "user_type": "Manager",
+    "action": "Create Course",
+    "account": {
+        "username": "manager",
+        "password": "sandbox24"
+    },
+    "create_course_management_url": "https://sandbox.moodledemo.net/course/management.php",
+    "create_course_category_url": "https://sandbox.moodledemo.net/course/editcategory.php?parent=1",
+    "case_1": {
+        "name": "Create Course Category - Not fill 'Category name'",
+        "category_name": "",
+        "category_id": "11111",
+        "expected_err": "Required"
+    },
+    "case_2": {
+        "name": "Create Course Category - With Name & ID",
+        "category_name": "Category Name Test Case#2",
+        "category_id": "22222"
+    },
+    "case_3": {
+        "name": "Create Course Category - With Name & ID",
+        "category_name": "Category Name Test Case#3",
+        "category_id": "3333",
+        "description": "SOFTWARE TESTING Description"
+    }
+}

@@ -21,7 +21,7 @@
 
     },
     "case_3": {
-        "name": "Create Course'",
+        "name": "Create Course",
         "full_name": "Test course full name",
         "short_name": "test course short name"
     }
